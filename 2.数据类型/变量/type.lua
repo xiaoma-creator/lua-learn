@@ -99,4 +99,33 @@ end
 -- function ------------------------------------------------------------------------------------
 -- 在 Lua 中，函数是被看作是"第一类值（First-Class Value）"
 -- * 函数可以存在变量里:
+function func1(a)
+    print(a)
+end
+
+func2 = func1
+func2("this is func2")
+
+-- * function 可以以匿名函数（anonymous function）的方式通过参数传递:
+table1 = {"value1", "value2", "value3"}
+
+function func1(a,func)
+    func(a)
+end
+
+func1(table1,
+function (tbl)
+    for k, v in pairs(tbl) do
+        print(k.."="..v)
+    end
+end)
+
+-- thread（线程）
+
+-- userdata（自定义类型）
+-- userdata 是一种用户自定义数据，用于表示一种由应用程序或 C/C++ 语言库所创建的类型，
+-- 可以将任意 C/C++ 的任意数据类型的数据
+
+
+
 
